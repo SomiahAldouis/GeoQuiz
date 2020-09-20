@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">GeoQuiz</string>
-    <string name="question_text">Sana\'a is the capital of Yemen ? </string>
+    <string name="question_sana">Sana\'a is the capital of Yemen ? </string>
+    <string name="question_alquds">AlQuds is the capital of Palestine ? </string>
+    <string name="question_damascus">Damascus is the capital of Syria ? </string>
+    <string name="question_baghdad">Baghdad is the capital of Iraq ? </string>
+    <string name="question_algiers">ALgiers is the capital of Algeria ? </string>
+    <string name="question_tunis">Tunis is the capital of Tunisia ? </string>
     <string name="true_button">true</string>
     <string name="false_button">false</string>
-    <string name="correct_toast">Correct ^^</string>
-    <string name="incorrect_toast">Incorrect !!</string>
+    <string name="next_button">Next</string>
+    <string name="correct_toast">Great answer is Correct ^^</string>
+    <string name="incorrect_toast">Oops... answer is Incorrect !!</string>
 </resources>

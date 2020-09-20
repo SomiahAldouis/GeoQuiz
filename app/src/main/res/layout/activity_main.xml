@@ -10,10 +10,11 @@
     android:background="@color/colorAccent">
 
     <TextView
+        android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/question_text"
+        android:text="@string/question_sana"
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
@@ -39,5 +40,10 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/white"/>
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next_button"
+        android:text="@string/next_button"/>
 
 </LinearLayout>
