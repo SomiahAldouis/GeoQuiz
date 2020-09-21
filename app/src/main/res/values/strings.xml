@@ -11,5 +11,5 @@
     <string name="next_button">Next</string>
     <string name="correct_toast">Great answer is Correct ^^</string>
     <string name="incorrect_toast">Oops... answer is Incorrect !!</string>
-    <string name="previous_button">Previous</string>
+    <string name="previous_button">Prev</string>
 </resources>

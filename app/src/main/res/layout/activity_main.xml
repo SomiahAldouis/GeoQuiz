@@ -44,16 +44,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
-        <Button
+        android:layout_margin="20dp">
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/previous_button"
-            android:text="@string/previous_button"/>
-        <Button
+            android:text="@string/previous_button"
+            android:src="@drawable/abc_vector_test"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_margin="5dp"
+            />
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/next_button"
-            android:text="@string/next_button"/>
+            android:text="@string/next_button"
+            android:src="@drawable/abc_vector_test"
+            android:rotation="180"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_margin="5dp"/>
     </LinearLayout>
 </LinearLayout>
