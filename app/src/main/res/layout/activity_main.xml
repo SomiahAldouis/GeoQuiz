@@ -62,6 +62,7 @@
             android:rotation="180"
             android:backgroundTint="@color/colorPrimary"
             android:layout_margin="5dp"
-            android:contentDescription="@string/next_des"/>
+            android:contentDescription="@string/next_des"
+            />
     </LinearLayout>
 </LinearLayout>
