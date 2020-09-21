@@ -12,4 +12,6 @@
     <string name="correct_toast">Great answer is Correct ^^</string>
     <string name="incorrect_toast">Oops... answer is Incorrect !!</string>
     <string name="previous_button">Prev</string>
+    <string name="pre_des">Back to the previous question</string>
+    <string name="next_des">Go to the next question</string>
 </resources>

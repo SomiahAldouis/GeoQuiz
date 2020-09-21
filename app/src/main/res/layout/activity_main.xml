@@ -52,6 +52,7 @@
             android:src="@drawable/abc_vector_test"
             android:backgroundTint="@color/colorPrimary"
             android:layout_margin="5dp"
+            android:contentDescription="@string/pre_des"
             />
         <ImageButton
             android:layout_width="wrap_content"
@@ -60,6 +61,7 @@
             android:src="@drawable/abc_vector_test"
             android:rotation="180"
             android:backgroundTint="@color/colorPrimary"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:contentDescription="@string/next_des"/>
     </LinearLayout>
 </LinearLayout>
