@@ -31,11 +31,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextButton: ImageButton
     private lateinit var prevButton: ImageButton
     private lateinit var questionTextView: TextView
+    private lateinit var numTextView: TextView
     private lateinit var cheatButton: Button
 
 
     private var questAnswered=0
     private var trueAnswer=0
+
+    var num = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.next_button)
         prevButton = findViewById(R.id.previous_button)
         questionTextView = findViewById(R.id.question_text_view)
+        numTextView = findViewById(R.id.num_question)
         cheatButton = findViewById(R.id.cheat_button)
 
 
@@ -114,11 +118,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion(){
+        numTextView.setText("${num.toString()}/ 6")
+        num++
         val questionTextResID = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResID)
         if(quizViewModel.currentQuestionAnswered == false) {
             enable(true)
         }else{ enable(false)}
+
+
     }
     private fun checkAnswer(userAnswer:Boolean) {
         val correctAnswer = quizViewModel.currentQuestionAnswer

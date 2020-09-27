@@ -10,11 +10,16 @@
     android:background="@color/colorAccent">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/num_question"
+        android:text="@string/one_of_six"/>
+    <TextView
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/question_sana"
+        android:text="@string/question_beginner_one"
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
