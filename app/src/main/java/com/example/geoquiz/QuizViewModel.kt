@@ -9,7 +9,8 @@ private const val TAG = "QuizViewModel"
 class QuizViewModel : ViewModel(){
 
 //    var randomValues = Random()
-    val randomValues = (0..9).shuffled().last()
+//val randomValues = List(6) { Random.nextInt(0, 9) }
+    val randomValues = List(6){(0..9).shuffled().last()}
     var currentIndex = 0
     var isCheater = false
 
@@ -46,6 +47,16 @@ class QuizViewModel : ViewModel(){
                 Question(R.string.question_advanced_ten,false,false))
     )
 
+    private val questionBankInterface = listOf(
+        questionBank[0][randomValues[0]],
+        questionBank[0][randomValues[1]],
+        questionBank[1][randomValues[2]],
+        questionBank[1][randomValues[3]],
+        questionBank[2][randomValues[4]],
+        questionBank[2][randomValues[5]],
+
+    )
+
 //    private val questionBank = listOf(
 //        Question(R.string.question_sana,true,false),
 //        Question(R.string.question_alquds,true,false),
@@ -57,26 +68,27 @@ class QuizViewModel : ViewModel(){
 
 
     val currentQuestionText: Int
-    get() = questionBank[currentIndex][randomValues].textResID
+    get() = questionBankInterface[currentIndex].textResID
 
     val currentQuestionAnswer: Boolean
-    get()=questionBank[currentIndex][randomValues].answer
+    get()=questionBankInterface[currentIndex].answer
 
     var currentQuestionAnswered:Boolean? =null
-    get() = questionBank[currentIndex][randomValues].Answered
+    get() = questionBankInterface[currentIndex].Answered
 
     val questionBankSize : Int
-    get() = questionBank.size
+    get() = questionBankInterface.size
 
     fun moveToNext(){
-        currentIndex = (currentIndex + 1) % questionBank.size
+
+        currentIndex = (currentIndex + 1) % questionBankInterface.size
 
     }
     fun moveToPrev(){
         if(currentIndex == 0){
-            currentIndex = (currentIndex + questionBank.size -1)
+            currentIndex = (currentIndex + questionBankInterface.size -1)
         }else{
-            currentIndex = (currentIndex - 1) % questionBank.size}
+            currentIndex = (currentIndex - 1) % questionBankInterface.size}
     }
 
 

@@ -37,8 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private var questAnswered=0
     private var trueAnswer=0
-
-    var num = 1
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,8 +117,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion(){
+        var num = quizViewModel.currentIndex +1
         numTextView.setText("${num.toString()}/ 6")
-        num++
+
         val questionTextResID = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResID)
         if(quizViewModel.currentQuestionAnswered == false) {
