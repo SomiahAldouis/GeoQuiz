@@ -32,12 +32,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prevButton: ImageButton
     private lateinit var questionTextView: TextView
     private lateinit var numTextView: TextView
+    private lateinit var scoreTextView: TextView
     private lateinit var cheatButton: Button
 
 
     private var questAnswered=0
     private var trueAnswer=0
-    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         prevButton = findViewById(R.id.previous_button)
         questionTextView = findViewById(R.id.question_text_view)
         numTextView = findViewById(R.id.num_question)
+        scoreTextView = findViewById(R.id.score)
         cheatButton = findViewById(R.id.cheat_button)
 
 
@@ -131,9 +133,15 @@ class MainActivity : AppCompatActivity() {
     private fun checkAnswer(userAnswer:Boolean) {
         val correctAnswer = quizViewModel.currentQuestionAnswer
         ++questAnswered
+
         val messageResID = when{
             quizViewModel.isCheater   ->   R.string.judgment_toast
-            userAnswer==correctAnswer -> { ++trueAnswer
+            userAnswer==correctAnswer -> { if(quizViewModel.currentIndex == 0 || quizViewModel.currentIndex == 1)
+                                                trueAnswer= trueAnswer+2
+                                            else if(quizViewModel.currentIndex == 2 || quizViewModel.currentIndex == 3 )
+                                                trueAnswer=trueAnswer+4
+                                            else if(quizViewModel.currentIndex == 4 || quizViewModel.currentIndex == 5 )
+                                                trueAnswer=trueAnswer+6
                                            R.string.correct_toast}
             else                      ->   R.string.incorrect_toast
         }
@@ -146,13 +154,13 @@ class MainActivity : AppCompatActivity() {
     }
     private fun sumScore(){
         var total = quizViewModel.questionBankSize
-        var score = trueAnswer*100/total
-        //  var score=trueAnswer
+       // var score = trueAnswer
+        scoreTextView.setText("${trueAnswer.toString()}")
         if(questAnswered==total){
             var msg="You Answered the all question  "
-            var scores="Your Score is $score / 100"
+            //var scores="Your Score is $score / 24"
             Toast.makeText(this,msg,Toast.LENGTH_LONG).show()
-            Toast.makeText(this,scores,Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,scores,Toast.LENGTH_LONG).show()
         }
     }
 

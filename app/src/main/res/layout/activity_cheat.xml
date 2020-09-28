@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".CheatActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/warning_text"/>
+        android:text="@string/warning_text"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        />
     <TextView
         android:id="@+id/answer_text_view"
         android:layout_width="wrap_content"
@@ -23,5 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/show_answer_button"
-        android:text="@string/show_answer_button"/>
+        android:text="@string/show_answer_button"
+        android:textColor="@color/white"
+        android:background="@color/colorBlue"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"/>
 </LinearLayout>
