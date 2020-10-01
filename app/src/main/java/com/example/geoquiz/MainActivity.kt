@@ -1,8 +1,11 @@
 package com.example.geoquiz
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityOptions
 import android.app.ProgressDialog.show
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -39,8 +42,9 @@ class MainActivity : AppCompatActivity() {
     private var questAnswered=0
     private var trueAnswer=0
 
-
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         Log.d(TAG,"OnCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
@@ -85,13 +89,18 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.moveToNext()
             updateQuestion()
         }
-        cheatButton.setOnClickListener {
+        cheatButton.setOnClickListener { view ->
             // start cheat activity
             // share info
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity,answerIsTrue)
             //startActivity(intent)
-            startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
+                val option =
+                    ActivityOptions.makeClipRevealAnimation(view, 0, 0, view.width, view.height)
+                startActivityForResult(intent, REQUEST_CODE_CHEAT, option.toBundle())
+            }else startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            checkClick(true)
         }
 
         updateQuestion()
@@ -149,8 +158,8 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, messageResID, Toast.LENGTH_SHORT).show()
     }
     private fun enable(enable_Button:Boolean){
-        falseButton.isEnabled=enable_Button
-        trueButton.isEnabled=enable_Button
+        falseButton.isEnabled = enable_Button
+        trueButton.isEnabled  = enable_Button
     }
     private fun sumScore(){
         var total = quizViewModel.questionBankSize
@@ -171,6 +180,14 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_CODE_CHEAT){
             quizViewModel.isCheater = data?.getBooleanExtra(EXTRA_ANSWER_SHOWN,false)?:false
         }
+    }
+
+    private fun checkClick(clickNum: Boolean){
+        var num= 0
+        if(clickNum == true)
+            num++
+        if (num > 3)
+            cheatButton.isEnabled = false
     }
 }
 

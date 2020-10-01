@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
@@ -18,6 +19,7 @@ class CheatActivity : AppCompatActivity() {
 
     private lateinit var answerTextView  : TextView
     private lateinit var showAnswerButton: Button
+    private lateinit var sdkVersion:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,7 @@ class CheatActivity : AppCompatActivity() {
 
         answerTextView   = findViewById(R.id.answer_text_view)
         showAnswerButton = findViewById(R.id.show_answer_button)
+        sdkVersion       = findViewById(R.id.sdk_version)
 
         showAnswerButton.setOnClickListener {
             val answerText = when{
@@ -37,6 +40,8 @@ class CheatActivity : AppCompatActivity() {
             answerTextView.setText(answerText)
             setAnswerShownResult(true)
         }
+
+        sdkVersion.setText("API Level " + Build.VERSION.SDK_INT)
     }
 
 private fun setAnswerShownResult(isAnswerShown: Boolean){

@@ -4,6 +4,7 @@
     <color name="colorBlueDark">#222059</color>
     <color name="colorBlueLight">#A3A0F2</color>
     <color name="colorPrimary">#CFCEF2</color>
+    <color name="colorPrimaryhint">#F8F8FD</color>
     <color name="colorSecondary">#22F2DD</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
